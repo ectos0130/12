@@ -40,6 +40,7 @@ int board_initBoard(void)
 	}
 	return 0;
 }
+
 int board_printBoardStatus(void)
 {
 	int i;

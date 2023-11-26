@@ -36,7 +36,7 @@ void printPlayerPosition(int player)
 {
 	int i;
 	
-	for(i=0;i<N_PLAYER;i++)
+	for(i=0;i<N_BOARD;i++)
 	{
 		printf("|");
 		if (player_position[player] == i)
@@ -107,7 +107,7 @@ int getWinner(void)
 	
 	for (i=0;i<N_PLAYER;i++)
 	{
-		if (player_coin[i>max_coin])
+		if (player_coin[i] > max_coin)
 		{
 			max_coin = player_coin[i];
 			winner = i;
@@ -151,9 +151,9 @@ int main(int argc, char *argv[]) {
 		}
 		
 		//2-1.플레이어 상태출력
-		board_printBoardStatus();
 		for (i=0;i<N_PLAYER;i++)
 			printPlayerPosition(i);
+		board_printBoardStatus();
 		printPlayerStatus();
 		
 		//2-2.주사위 던지기
@@ -190,10 +190,8 @@ int main(int argc, char *argv[]) {
 		}
 			//상어 동작 
 		}while(1);
-		//정리(승자 계산, 출력 등) 
-		game_end();
-		getWinner();
-		getAlivePlayer();
+		//정리(승자 계산, 출력 등)
+		
 	return 0;
 }
 
